@@ -1,0 +1,68 @@
+body.body--dark {
+  background: hsl(207deg, 26%, 17%) !important;
+}
+
+.q-card.q-card--dark {
+  background: hsl(207deg, 26%, 17%) !important;
+}
+
+.header {
+  padding-inline: 6vw;
+  padding-block: max(1.1em, 1.8vw);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1607843137) 0 -4px 10px 1px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+body.body--dark .header {
+  background-color: hsl(206.4deg, 23.4%, 21%);
+  color: #fbfafa;
+}
+body.body--dark body.body--dark .header .q-btn .q-btn__content .block {
+  background-color: hsl(206.4deg, 23.4%, 21%);
+  color: #fbfafa;
+}
+
+body.body--dark .q-btn .q-btn__content .block {
+  color: #fbfafa;
+}
+
+p {
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+          margin-block-start: 0.67em;
+  -webkit-margin-after: 0.67em;
+          margin-block-end: 0.67em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+span {
+  font-weight: bold;
+}
+
+.back-btn {
+  margin: 50px 50px;
+}
+
+.q-list .q-item .q-item__section.title {
+  font-weight: bold;
+}
+
+.country-block-img {
+  height: 100%;
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}/*# sourceMappingURL=app.css.map */

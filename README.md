@@ -22,7 +22,7 @@ The goal of this project is to allow users to be able to:
 - view the design on any screen size.
 - Click through to the border countries on the detail page
 
-## Demos
+## Demo
 
 Desktop preview of the design.
 ![desktop-preview](https://user-images.githubusercontent.com/116076511/198612037-3d7f6b30-6433-4adf-b746-f688dcec3fb0.jpg)

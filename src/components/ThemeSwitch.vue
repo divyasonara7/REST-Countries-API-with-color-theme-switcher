@@ -1,5 +1,5 @@
 <template>
-    <q-btn color="white" text-color="black" label="Light Mode" flat no-caps  @click="toggleDarkMode"></q-btn>
+    <q-btn color="white" text-color="black" :label="$q.dark.mode ? 'Light mode': 'Dark mode' " flat no-caps  @click="toggleDarkMode"></q-btn>
 </template>
 <script>
   import { useQuasar } from 'quasar';

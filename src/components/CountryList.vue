@@ -2,21 +2,23 @@
 <div class="row q-pa-md justify-between">
       <div class="col-6 col-md-4">
           <q-input
-          v-model="search"
           debounce="500"
           filled
           placeholder="Search for country"
+          @update:model-value="searchByname($event)"
         >
           <template v-slot:append>
             <q-icon name="search"></q-icon>
           </template>
         </q-input>
       </div>
-      <!-- <div class="col-12 col-md-4">.col-12 .col-md-4</div> -->
+      <div class="col-12 col-md-4 align-end full-height justify-center">
+      <RegionFilter @filter="filterCountriesByRegion" />
+      </div>
     </div>
 
-    <div class="q-pa-md row wrap justify-center  q-gutter-lg"  v-if="searchedCountries.length" >
-        <q-card class="country-summary" v-for="(country) in searchedCountries" :key="country.name" @click="redirect(country.name)">
+    <div class="q-pa-md row wrap justify-center  q-gutter-lg"  v-if="countries?.length" >
+        <q-card class="country-summary" v-for="(country) in countries" :key="country.name" @click="redirect(country.name)">
           <img class="image" :src="country.flags.svg" alt="country flag">
           <q-card-section>
             <div class="text-h6">{{country.name}}</div>
@@ -32,36 +34,59 @@
     </div>
 </template>
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
+import {  onMounted } from '@vue/runtime-core'
 import {useStore } from 'vuex'
 import router from "@/router";
 import {ref} from 'vue';
+import RegionFilter from '@/components/RegionFilter.vue'
 export default{
+
+  components:{
+    RegionFilter,
+  },
 
     setup(){
         const store = useStore();
-        const search = ref('');
+        const countries = ref();
+
         onMounted(async ()=>{
           await store.dispatch('getCountryList')
+          countries.value = store.getters['getCountryLists'];
         })
 
-      const searchedCountries = computed(() => {
-      return store.getters['getCountryLists'].filter((country) => {
-        return (
-          country?.name
-            .toLowerCase()
-            .indexOf(search?.value?.toLowerCase()) != -1
-        );
-      });
-});
+        function searchByname(name){
+          countries.value =  store.getters['getCountryLists'].filter((country) => {
+                return (
+                  country?.name
+                    .toLowerCase()
+                    .indexOf(name?.toLowerCase()) != -1
+                );
+              });
+        }
+
+        function filterCountriesByRegion(region){
+          if(region === 'All'){
+            countries.value = store.getters['getCountryLists'];
+          }else{
+            countries.value =  store.getters['getCountryLists'].filter((country) => {
+                return (
+                  country?.region
+                    .toLowerCase()
+                    .indexOf(region?.toLowerCase()) != -1
+                );
+              });
+          }    
+  }
 
       function redirect(name){
         router.push({ name: 'country-detail', params: { id: name } })
       }
+
         return {
             redirect,
-            search,
-            searchedCountries
+            countries,
+            searchByname,
+            filterCountriesByRegion
         }
     }
 }
@@ -73,5 +98,10 @@ export default{
 
 .q-pa-md {
     padding: 16px 80px;
+}
+
+.align-end{
+  text-align: end;
+  padding: 10px;
 }
 </style>

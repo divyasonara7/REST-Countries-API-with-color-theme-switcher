@@ -65,7 +65,9 @@ export default{
         }
 
         function filterCountriesByRegion(region){
-          if(region != 'All'){
+          if(region === 'All'){
+            countries.value = store.getters['getCountryLists'];
+          }else{
             countries.value =  store.getters['getCountryLists'].filter((country) => {
                 return (
                   country?.region
@@ -73,13 +75,13 @@ export default{
                     .indexOf(region?.toLowerCase()) != -1
                 );
               });
-          }
+          }    
   }
 
       function redirect(name){
         router.push({ name: 'country-detail', params: { id: name } })
       }
-      
+
         return {
             redirect,
             countries,

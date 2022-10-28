@@ -1,7 +1,5 @@
-<<<<<<< HEAD
+
 # REST-Countries-API-with-color-theme-switcher
-=======
-# country-detail
 
 ## Project setup
 ```
@@ -25,4 +23,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
->>>>>>> d9bdf2b (intial setup)
+

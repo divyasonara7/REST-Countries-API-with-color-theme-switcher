@@ -1,6 +1,6 @@
 <template>
 <div class="row q-pa-md justify-between">
-      <div class="col-6 col-md-4">
+      <div class="col-12  align-start col-md-4">
           <q-input
           debounce="500"
           filled
@@ -12,7 +12,7 @@
           </template>
         </q-input>
       </div>
-      <div class="col-12 col-md-4 align-end full-height justify-center">
+      <div class="col-12 col-md-4 q-pa-sm  align-end">
       <RegionFilter @filter="filterCountriesByRegion" />
       </div>
     </div>

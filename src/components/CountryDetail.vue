@@ -37,7 +37,7 @@
                 </q-item>
             </q-list>
             </div>
-            <div class="col-4 col-sm-6">
+            <div class="col-6 col-sm-6">
                 <q-list>
                 <q-item  v-ripple v-for="(domain,index) in country.topLevelDomain"  :key="index">
                     <q-item-section class="title">Top Level Domain:</q-item-section>
@@ -45,7 +45,7 @@
                 </q-item>
                 <q-item  v-ripple v-for="(currencies,index) in country.currencies"  :key="index">
                     <q-item-section class="title">Currencies: </q-item-section>
-                    <q-item-section>{{currencies.name}}</q-item-section>
+                    <q-item-section >{{currencies.name}}</q-item-section>
                 </q-item>
                 <q-item  v-ripple>
                     <q-item-section class="title">Languages:</q-item-section>

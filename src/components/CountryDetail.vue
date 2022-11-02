@@ -70,8 +70,6 @@
         <div class="q-pa-md q-gutter-sm">
           <span>border countries:</span>
           <q-btn
-            dense
-            color="white"
             :label="border"
             v-for="border in borderCounties"
             :key="border"

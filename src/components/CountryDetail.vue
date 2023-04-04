@@ -75,7 +75,7 @@
             :key="border"
             text-color="black"
             size="sm"
-            @click="redirect(border)"
+            @click="redirectt(border)"
           />
         </div>
       </div>
@@ -134,7 +134,7 @@ export default {
       return borderCounty;
     });
 
-    function redirect(name) {
+    function redirectt(name) {
       router.push({ name: "country-detail", params: { id: name } });
     }
 
@@ -143,7 +143,7 @@ export default {
       topLevelDomain,
       language,
       borderCounties,
-      redirect,
+      redirectt,
     };
   },
 };

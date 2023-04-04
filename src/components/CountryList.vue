@@ -64,15 +64,15 @@ export default{
               });
         }
 
-        function filterCountriesByRegion(region){
-          if(region === 'All'){
+        function filterCountriesByRegion(filterRegion){
+          if(filterRegion === 'All'){
             countries.value = store.getters['getCountryLists'];
           }else{
             countries.value =  store.getters['getCountryLists'].filter((country) => {
                 return (
                   country?.region
                     .toLowerCase()
-                    .indexOf(region?.toLowerCase()) != -1
+                    .indexOf(filterRegion?.toLowerCase()) != -1
                 );
               });
           }    
